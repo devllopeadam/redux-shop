@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentUser } from "../store/users/UsersSlice";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
-  const { users } = useSelector((state) => state.users);
+  const { users, currentUser } = useSelector((state) => state.users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (currentUser && currentUser.nom && currentUser.prenom) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
