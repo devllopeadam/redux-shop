@@ -50,18 +50,6 @@ const FilterSeachBar = () => {
           <option value="desc">Price: High to Low</option>
         </select>
       </div>
-      {/* <div className="flex flex-col gap-1">
-        <label className="text-[14px] font-medium">Price between</label>
-        <select
-          onChange={() =>
-            dispatch({ type: "FILTER_BY_PRICE", payload: event.target.value })
-          }
-          className="px-3 py-2 border border-gray-300 rounded-md outline-none">
-          <option value="">Sort by Price</option>
-          <option value="asc">Price: Low to High</option>
-          <option value="desc">Price: High to Low</option>
-        </select>
-      </div> */}
     </div>
   );
 };
