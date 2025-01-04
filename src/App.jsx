@@ -1,8 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import Layout from "./pages/Layout";
-import Products from "./pages/Products";
-import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+
 const App = () => {
   return (
     <Router>
@@ -15,12 +16,12 @@ const App = () => {
             element={<Home />}
           />
           <Route
-            path="/products"
-            element={<Products />}
+            path="/login"
+            element={<Login />}
           />
           <Route
-            path="/cart"
-            element={<Cart />}
+            path="/register"
+            element={<Register />}
           />
         </Route>
       </Routes>

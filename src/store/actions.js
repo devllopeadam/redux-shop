@@ -21,7 +21,6 @@ export const removeFromCart = (id) => ({
   payload: id,
 });
 
-
 export const updateFromCart = (id, quantity) => ({
   type: UPDATE_FROM_CART,
   payload: { id, quantity },
