@@ -1,8 +1,12 @@
-import { Home, Boxes, ShoppingCart, Menu, X } from "lucide-react";
+import { Home, LogOut, Menu, Volleyball, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../store/users/UsersSlice";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <nav className="bg-gray-800 text-white">
@@ -26,23 +30,26 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link
-                  to="/products"
+                  to="/sports"
                   className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center gap-1">
-                  <Boxes
+                  <Volleyball
                     className="inline-block mr-1"
                     size={18}
                   />
-                  Products
+                  Sports
                 </Link>
-                <Link
-                  to="/cart"
+                <button
+                  onClick={() => {
+                    dispatch(logout());
+                    navigate("/login");
+                  }}
                   className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center gap-1">
-                  <ShoppingCart
+                  <LogOut
                     className="inline-block mr-1"
                     size={18}
                   />
-                  Cart
-                </Link>
+                  Logout
+                </button>
               </div>
             </div>
           </div>
@@ -70,23 +77,26 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/products"
+              to="/sports"
               className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700">
-              <Boxes
+              <Volleyball
                 className="inline-block mr-2"
                 size={18}
               />
-              Products
+              Sports
             </Link>
-            <Link
-              to="/cart"
+            <button
+              onClick={() => {
+                dispatch(logout());
+                navigate("/login");
+              }}
               className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700">
-              <ShoppingCart
+              <LogOut
                 className="inline-block mr-2"
                 size={18}
               />
-              Cart
-            </Link>
+              Logout
+            </button>
           </div>
         </div>
       )}

@@ -1,0 +1,4 @@
+## Le problème Au 1er janvier 2014, Paul vient de se faire embaucher pour un salaire net mensuel de 2 000 € dans une entreprise qui a mis en place la règle d’évolution des salairessuivante : chaque mois, les salaires mensuels sont augmentés de 0,1 % puis de 1 €.Donc le salaire net mensuel de Paul au mois de février 2014 sera de 1,001 × 2 000  +1 = 2 003 €, puis de 1,001 × 2 003 + 1 = 2 006,003 € au mois de mars, etc.Le but du sujet est de déterminer le mois et l’année à partir desquels le salaire netmensuel de Paul dépassera 3 000 €.
+
+
+## Écrire un algorithme donnant le mois et l’année à partir desquels le salaire net mensuel de Paul dépassera 3 000 €. Cet algorithme devra faire appel aux fonctionss(n), mois(n) et annee(n).

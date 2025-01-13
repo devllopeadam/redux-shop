@@ -3,6 +3,7 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Sports from "./pages/Sports";
 
 const App = () => {
   return (
@@ -22,6 +23,10 @@ const App = () => {
           <Route
             path="/register"
             element={<Register />}
+          />
+          <Route
+            path="/sports"
+            element={<Sports />}
           />
         </Route>
       </Routes>
