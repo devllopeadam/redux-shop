@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Sports from "./pages/Sports";
+import SearchSportif from "./pages/SearchSportif";
 
 const App = () => {
   return (
@@ -27,6 +28,10 @@ const App = () => {
           <Route
             path="/sports"
             element={<Sports />}
+          />
+          <Route
+            path="/searchsportif"
+            element={<SearchSportif />}
           />
         </Route>
       </Routes>

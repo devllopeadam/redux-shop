@@ -1,12 +1,19 @@
-import { Home, LogOut, Menu, Volleyball, X } from "lucide-react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { Home, LogOut, Menu, Volleyball, X, Bike } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../store/users/UsersSlice";
 const Navbar = () => {
+  const { currentUser } = useSelector((state) => state.users);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser || !currentUser.nom || !currentUser.prenom) {
+      navigate("/login");
+    }
+  }, [currentUser, navigate]);
 
   return (
     <nav className="bg-gray-800 text-white">
@@ -36,20 +43,33 @@ const Navbar = () => {
                     className="inline-block mr-1"
                     size={18}
                   />
-                  Sports
+                  My Sports
                 </Link>
-                <button
-                  onClick={() => {
-                    dispatch(logout());
-                    navigate("/login");
-                  }}
+                <Link
+                  to="/searchsportif"
                   className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center gap-1">
-                  <LogOut
+                  <Bike
                     className="inline-block mr-1"
                     size={18}
                   />
-                  Logout
-                </button>
+                  Find Users
+                </Link>
+                {currentUser ? (
+                  <button
+                    onClick={() => {
+                      dispatch(logout());
+                      navigate("/login");
+                    }}
+                    className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center gap-1">
+                    <LogOut
+                      className="inline-block mr-1"
+                      size={18}
+                    />
+                    Logout
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
@@ -83,7 +103,16 @@ const Navbar = () => {
                 className="inline-block mr-2"
                 size={18}
               />
-              Sports
+              My Sports
+            </Link>
+            <Link
+              to="/searchsportif"
+              className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 flex items-center gap-1">
+              <Bike
+                className="inline-block mr-1"
+                size={18}
+              />
+              Find Users
             </Link>
             <button
               onClick={() => {
